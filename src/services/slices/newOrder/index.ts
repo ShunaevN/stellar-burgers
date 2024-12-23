@@ -27,7 +27,9 @@ const addBurgerSlice = createSlice({
   initialState,
   reducers: {
     clearOrder: (state) => {
-      state = initialState;
+      state.error = null;
+      state.orderModalData = null;
+      state.orderRequest = false;
     }
   },
   selectors: {
@@ -53,4 +55,4 @@ const addBurgerSlice = createSlice({
 
 export const { clearOrder } = addBurgerSlice.actions;
 export const { getOrderRequest, getOrderModalData } = addBurgerSlice.selectors;
-export const addBurgerReducer = addBurgerSlice.reducer;
+export const addBurgerSliceReducer = addBurgerSlice.reducer;

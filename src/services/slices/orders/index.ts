@@ -14,10 +14,7 @@ const initialState: OrderState = {
   error: null
 };
 
-export const getOrders = createAsyncThunk(
-  'order/getOrders',
-  async () => await getOrdersApi()
-);
+export const getOrders = createAsyncThunk('order/getOrders', getOrdersApi);
 
 export const getOrderByNumber = createAsyncThunk(
   'order/getOrderByNumber',

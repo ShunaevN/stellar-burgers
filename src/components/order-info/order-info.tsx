@@ -14,10 +14,6 @@ export const OrderInfo: FC = () => {
   const ingredients = useSelector(getAllIngredients);
   const orderData = useSelector(getAllOrders)[0];
 
-  useEffect(() => {
-    dispatch(getOrderByNumber(Number(number)));
-  }, [dispatch]);
-
   /* Готовим данные для отображения */
   const orderInfo = useMemo(() => {
     if (!orderData || !ingredients.length) return null;

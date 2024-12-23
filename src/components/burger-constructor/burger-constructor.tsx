@@ -8,9 +8,11 @@ import {
 import { useDispatch, useSelector } from '../../services/store';
 import { orderBurger, clearOrder } from '../../services/slices/newOrder';
 import { useNavigate } from 'react-router-dom';
+import { getUserData } from '../../services/slices/user';
 
 export const BurgerConstructor: FC = () => {
   const { bun, ingredients } = useSelector(constructorItemsSelector);
+  const isUser = useSelector(getUserData);
   const orderRequest = useSelector((state) => state.addBurder.orderRequest);
   const dispatch = useDispatch();
   const orderModalData = useSelector((state) => state.addBurder.orderModalData);
@@ -24,6 +26,7 @@ export const BurgerConstructor: FC = () => {
   );
 
   const onOrderClick = useCallback(() => {
+    if (!isUser) return navigate('/login');
     if (!bun || orderRequest) return;
     const orderIngredients = [
       bun?._id,
@@ -37,7 +40,6 @@ export const BurgerConstructor: FC = () => {
   const closeOrderModal = useCallback(() => {
     dispatch(clearOrder());
     dispatch(clearConstructor());
-    navigate('/');
   }, [dispatch, navigate]);
 
   const price = useMemo(() => {
