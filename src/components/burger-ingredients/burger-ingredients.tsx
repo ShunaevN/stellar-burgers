@@ -17,7 +17,7 @@ export const BurgerIngredients: FC = () => {
   if (isLoading) {
     return <Preloader />;
   }
-  console.log(ingridients);
+
   const buns = ingridients.filter((element) => element.type == 'bun');
   const mains = ingridients.filter((element) => element.type == 'main');
   const sauces = ingridients.filter((element) => element.type == 'sauce');
