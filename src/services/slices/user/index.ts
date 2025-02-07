@@ -4,7 +4,10 @@ import {
   updateUserApi,
   logoutApi,
   getUserApi
+
 } from '../../../utils/burger-api';
+
+
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { TUser } from '@utils-types';
 import { deleteCookie, setCookie } from '../../../utils/cookie';
@@ -15,6 +18,7 @@ export interface UserState {
   error: string | null;
   checkUserLoading: boolean;
 }
+
 
 export const initialState: UserState = {
   user: null,
@@ -33,7 +37,6 @@ export const loginUser = createAsyncThunk(
       const response = await loginUserApi(userData);
       setCookie('accessToken', response.accessToken);
       localStorage.setItem('refreshToken', response.refreshToken);
-      console.log(response);
       return response.user;
     } catch (error) {
       return rejectWithValue('Login failed');
