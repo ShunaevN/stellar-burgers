@@ -1,6 +1,4 @@
-
 import { getIngredientsApi } from '../../../utils/burger-api';
-
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { TIngredient } from '@utils-types';
 

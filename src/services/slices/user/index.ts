@@ -4,9 +4,7 @@ import {
   updateUserApi,
   logoutApi,
   getUserApi
-
 } from '../../../utils/burger-api';
-
 
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { TUser } from '@utils-types';
@@ -18,7 +16,6 @@ export interface UserState {
   error: string | null;
   checkUserLoading: boolean;
 }
-
 
 export const initialState: UserState = {
   user: null,
